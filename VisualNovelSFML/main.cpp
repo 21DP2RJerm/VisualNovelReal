@@ -11,6 +11,7 @@ int main() {
 	int summa = 0;
 	sf::RenderWindow window(sf::VideoMode(1920, 1080), "Bin Chi Ling Window", sf::Style::Fullscreen);
 	sf::RectangleShape fons(sf::Vector2f(1920.0f, 1080.0f));
+	sf::RectangleShape mazais(sf::Vector2f(1920.0f, 1080.0f));
 	
 	sf::Vector2i pele = sf::Mouse::getPosition(window);
 
@@ -21,6 +22,10 @@ int main() {
 	sf::Texture fonsTexture;
 	fonsTexture.loadFromFile("hall.png");
 	fons.setTexture(&fonsTexture);
+
+	sf::Texture mazinais;
+	mazinais.loadFromFile("mazins.png");
+	mazais.setTexture(&mazinais);
 
 	
 
@@ -63,6 +68,7 @@ int main() {
 	window.clear();
 	window.draw(fons);
 	window.draw(teksts);
+	window.draw(mazais);
 	window.display();
 
 	
@@ -85,7 +91,19 @@ int main() {
 
 					std::getline(failins, tekstins);
 					teksts.setString(tekstins);
+					std::getline(failins, tekstins);
+					mazinais.loadFromFile(tekstins);
+					mazais.setTexture(&mazinais);
+					window.clear();
+					window.draw(fons);
+					window.draw(teksts);
+					window.draw(mazais);
+					window.draw(A);
+					window.draw(B);
+					window.display();
+
 					Sleep(300);
+
 				}
 				else if (tekstins == "2") {
 
@@ -98,6 +116,7 @@ int main() {
 					window.clear();
 					window.draw(fons);
 					window.draw(teksts);
+					window.draw(mazais);
 					window.draw(A);
 					window.draw(B);
 					window.display();
@@ -152,6 +171,10 @@ int main() {
 								std::getline(failins, tekstins);
 								teksts.setString(tekstins);
 								std::getline(failins, tekstins);
+								mazinais.loadFromFile(tekstins);
+								mazais.setTexture(&mazinais);
+								std::getline(failins, tekstins);
+								std::getline(failins, tekstins);
 								std::getline(failins, tekstins);
 								if (tekstins == "-") {
 									summa = summa - 1;
@@ -168,10 +191,13 @@ int main() {
 							izvele = TRUE;
 						}	
 						else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
-
+							std::getline(failins, tekstins);
 							std::getline(failins, tekstins);
 							std::getline(failins, tekstins);
 							teksts.setString(tekstins);
+							std::getline(failins, tekstins);
+							mazinais.loadFromFile(tekstins);
+							mazais.setTexture(&mazinais);
 							std::getline(failins, tekstins);
 							std::getline(failins, tekstins);
 							if (tekstins == "-") {
@@ -224,6 +250,7 @@ int main() {
 		window.clear();
 		window.draw(fons);
 		window.draw(teksts);
+		window.draw(mazais);
 		window.draw(A);
 		window.draw(B);
 		window.display();
